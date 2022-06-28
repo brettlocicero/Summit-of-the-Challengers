@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D r2d;
     CapsuleCollider2D mainCollider;
     Transform t;
-    float screenMidpoint;
     public bool stunned;
 
     [SerializeField] Animator spriteAnim;
@@ -42,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         r2d.gravityScale = gravityScale;
         facingRight = t.localScale.x > 0;
-        screenMidpoint = Screen.width / 2;
     }
 
     void Update ()
@@ -52,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Change facing direction
         float mouseX = Input.mousePosition.x;
-        if (mouseX > screenMidpoint) 
+        if (mouseX > Screen.width / 2) 
         {
             playerSprites.localScale = Vector3.one;
             gun.localScale = new Vector3(1.5f, 1.5f, 1f);
