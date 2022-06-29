@@ -14,6 +14,7 @@ public class EnemyWalkerAI : MonoBehaviour
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
+        target = PlayerInstance.instance.transform;
     }
 
     void FixedUpdate ()
