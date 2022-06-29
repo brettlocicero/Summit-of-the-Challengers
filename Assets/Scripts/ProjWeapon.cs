@@ -7,6 +7,8 @@ public class ProjWeapon : MonoBehaviour
     [SerializeField] Rigidbody2D proj;
     [SerializeField] float fireRate = 0.25f;
     [SerializeField] float projSpeed = 1500f;
+    [SerializeField] Animation anim;
+    [SerializeField] AnimationClip shotAnim;
 
     float counter;
 
@@ -17,6 +19,8 @@ public class ProjWeapon : MonoBehaviour
         counter += Time.deltaTime;
         if (Input.GetMouseButton(0) && counter >= fireRate) 
         {
+            anim.Rewind(shotAnim.name);
+            anim.Play(shotAnim.name);
             ShootProj(); // can have loop for x shot projs
             counter = 0;
         }
