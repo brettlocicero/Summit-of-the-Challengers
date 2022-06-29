@@ -9,6 +9,7 @@ public class ProjWeapon : MonoBehaviour
     [SerializeField] float projSpeed = 1500f;
     [SerializeField] Animation anim;
     [SerializeField] AnimationClip shotAnim;
+    [SerializeField] AudioClip shotSound;
 
     float counter;
 
@@ -21,6 +22,7 @@ public class ProjWeapon : MonoBehaviour
         {
             anim.Rewind(shotAnim.name);
             anim.Play(shotAnim.name);
+            GetComponent<AudioSource>().PlayOneShot(shotSound);
             ShootProj(); // can have loop for x shot projs
             counter = 0;
         }
