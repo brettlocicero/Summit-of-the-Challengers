@@ -15,7 +15,7 @@ public class ProjWeapon : MonoBehaviour
         LookAt(transform);
 
         counter += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && counter >= fireRate) 
+        if (Input.GetMouseButton(0) && counter >= fireRate) 
         {
             ShootProj(); // can have loop for x shot projs
             counter = 0;

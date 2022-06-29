@@ -120,7 +120,7 @@ Transform:
   - {fileID: 2298080496435782534}
   - {fileID: 7140892417244570999}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2298080495926160295
 MonoBehaviour:
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daea9cd9dc4ab2348908cc9445b78c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  proj: {fileID: 7534041296467208645, guid: b4eec13c8432c7243a24b3cfe815ea68, type: 3}
+  proj: {fileID: -7717465040914802431, guid: a83d5f3970f5a59409c5a800dd8d669e, type: 3}
   fireRate: 0.25
   projSpeed: 1500
 --- !u!1 &2298080496862368545
