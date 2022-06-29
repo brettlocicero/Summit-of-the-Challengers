@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _Speed: 2
     m_Colors:
-    - _Color: {r: 11.313708, g: 0, b: 0, a: 0}
+    - _Color: {r: 6.554865, g: 0.5490986, b: 0, a: 0}
     - _Color2: {r: 11.313708, g: 5.945243, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &3498511803000749533
