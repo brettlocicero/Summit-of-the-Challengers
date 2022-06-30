@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     IEnumerator SpawnEnemies (int enemyCount, bool spawnLeftside = true)
     {
         Transform enemy = enemies[Random.Range(0, enemies.Length)];
-        print(enemyCount);
+        //print(enemyCount);
 
         if (spawnLeftside)
             Instantiate(enemy, leftSpawn.position, Quaternion.identity);
