@@ -40,5 +40,7 @@ public class ProjWeapon : MonoBehaviour
         Rigidbody2D p = Instantiate(proj, transform.position, Quaternion.identity);
         LookAt(p.transform);
         p.GetComponent<Rigidbody2D>().AddForce(p.transform.right * projSpeed);
+
+        Destroy(p.gameObject, 10f);
     }
 }

@@ -38,7 +38,10 @@ public class EnemyWalkerAI : MonoBehaviour
         StartCoroutine(Stun(1f, 4f));
 
         if (health <= 0f) 
+        {
+            GameController.instance.DecEnemyCount();
             Destroy(gameObject);
+        }
     }
 
     IEnumerator Stun (float duration, float stunAmount) 
