@@ -11,6 +11,7 @@ public class EnemyWalkerAI : MonoBehaviour
     [SerializeField] float health = 50f;
 
     [Header("Attack Stats")]
+    [SerializeField] int damage;
     [SerializeField] float attackTime = 2f;
     [SerializeField] float attackDistance = 3f;
     [SerializeField] Transform attackPoint;
@@ -77,7 +78,7 @@ public class EnemyWalkerAI : MonoBehaviour
 
         if (hit) 
         {
-            print("Player hit");
+            hit.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
 
