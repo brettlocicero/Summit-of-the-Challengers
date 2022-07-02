@@ -20,15 +20,19 @@ public class EnemyWalkerAI : MonoBehaviour
 
     [Header("VFX")]
     [SerializeField] Animator anim;
+    [SerializeField] Material flashMaterial;
     
     Rigidbody2D rb;
     bool stunned;
     bool inAttack;
+    bool inFlash;
+    SpriteRenderer[] sprites;
 
     void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
         target = PlayerInstance.instance.transform;
+        sprites = GetComponentsInChildren<SpriteRenderer>();
     }
 
     void FixedUpdate ()
@@ -85,7 +89,8 @@ public class EnemyWalkerAI : MonoBehaviour
     public void TakeDamage (float dmg) 
     {
         health -= dmg;
-        StartCoroutine(Stun(1f, 4f));
+        StartCoroutine(Stun(0.25f, 12f));
+        StartCoroutine(DamageFlash());
 
         if (health <= 0f) 
         {
@@ -105,6 +110,29 @@ public class EnemyWalkerAI : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
         stunned = false;
+    }
+
+    IEnumerator DamageFlash () 
+    {
+        if (inFlash) yield return null;
+
+        inFlash = true;
+
+        Material[] mats = new Material[sprites.Length];
+        for (int i = 0; i < sprites.Length; i++) 
+        {
+            mats[i] = sprites[i].material;
+            sprites[i].material = flashMaterial;
+        }
+
+        yield return new WaitForSeconds(0.15f);
+
+        for (int i = 0; i < sprites.Length; i++) 
+        {
+            sprites[i].material = mats[i];
+        }
+
+        inFlash = false;
     }
 
     void OnDrawGizmosSelected()

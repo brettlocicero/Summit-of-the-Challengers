@@ -53,6 +53,7 @@ MonoBehaviour:
   attackObj: {fileID: 2371394669383302824, guid: fa5ccfd4b407c49e798618a5278728d6, type: 3}
   health: 25
   spriteVisuals: {fileID: 2308874507228643739}
+  flashMaterial: {fileID: 2100000, guid: b9fa5f12956714307a23ddbbb2533334, type: 2}
 --- !u!50 &2308874506831566282
 Rigidbody2D:
   serializedVersion: 4

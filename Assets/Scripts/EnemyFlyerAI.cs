@@ -11,14 +11,18 @@ public class EnemyFlyerAI : MonoBehaviour
     [SerializeField] Transform attackObj;
     [SerializeField] float health = 25f;
     [SerializeField] Transform spriteVisuals;
+    [SerializeField] Material flashMaterial;
 
     Rigidbody2D rb;
     bool stunned;
+    bool inFlash;
+    SpriteRenderer[] sprites;
 
     void Start ()
     {
         target = PlayerInstance.instance.transform;
         rb = GetComponent<Rigidbody2D>();
+        sprites = GetComponentsInChildren<SpriteRenderer>();
 
         InvokeRepeating("UpdateVelocity", 0f, updateDirInterval);
         InvokeRepeating("Attack", attackSpeed / 2, attackSpeed);
@@ -53,6 +57,19 @@ public class EnemyFlyerAI : MonoBehaviour
         }
     }
 
+    public void TakeDamage (float dmg) 
+    {
+        health -= dmg;
+        StartCoroutine(Stun(0.25f, 12f));
+        StartCoroutine(DamageFlash());
+
+        if (health <= 0f) 
+        {
+            //GameController.instance.DecEnemyCount();
+            Destroy(gameObject);
+        }
+    }
+
     IEnumerator Stun (float duration, float stunAmount) 
     {
         stunned = true;
@@ -65,6 +82,30 @@ public class EnemyFlyerAI : MonoBehaviour
         yield return new WaitForSeconds(duration);
         stunned = false;
     }
+
+
+    IEnumerator DamageFlash () 
+    {
+        if (inFlash) yield return null;
+
+        inFlash = true;
+
+        Material[] mats = new Material[sprites.Length];
+        for (int i = 0; i < sprites.Length; i++) 
+        {
+            mats[i] = sprites[i].material;
+            sprites[i].material = flashMaterial;
+        }
+
+        yield return new WaitForSeconds(0.15f);
+
+        for (int i = 0; i < sprites.Length; i++) 
+        {
+            sprites[i].material = mats[i];
+        }
+
+        inFlash = false;
+    }
     
     void Attack () 
     {
@@ -75,17 +116,5 @@ public class EnemyFlyerAI : MonoBehaviour
         t.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         
         Destroy(t.gameObject, 5f);
-    }
-
-    void TakeDamage (float dmg) 
-    {
-        health -= dmg;
-        StartCoroutine(Stun(1f, 4f));
-
-        if (health <= 0f) 
-        {
-            //GameController.instance.DecEnemyCount();
-            Destroy(gameObject);
-        }
     }
 }

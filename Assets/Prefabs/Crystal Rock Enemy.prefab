@@ -631,6 +631,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   anim: {fileID: 1390916341386482726}
+  flashMaterial: {fileID: 2100000, guid: b9fa5f12956714307a23ddbbb2533334, type: 2}
 --- !u!50 &1390916341580945596
 Rigidbody2D:
   serializedVersion: 4
