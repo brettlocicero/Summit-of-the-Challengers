@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_RequiresDepthTexture: 0
@@ -842,7 +842,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5299997, z: -10}
+  m_LocalPosition: {x: -48, y: -0.5999999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1580,11 +1580,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2298080495926160280, guid: 4a27cbf3a79bf6d429e508ac8acfad01, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -48
       objectReference: {fileID: 0}
     - target: {fileID: 2298080495926160280, guid: 4a27cbf3a79bf6d429e508ac8acfad01, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.53
+      value: -7.6
       objectReference: {fileID: 0}
     - target: {fileID: 2298080495926160280, guid: 4a27cbf3a79bf6d429e508ac8acfad01, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2046,7 +2046,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215609877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5299997, z: -10}
+  m_LocalPosition: {x: -48, y: -0.5999999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2083,7 +2083,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7773585, y: 1}
+    m_SensorSize: {x: 1.7780347, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.581, g: 0.41011763, b: 0.41011763, a: 1}
+  m_Color: {r: 0.41397262, g: 0.4117647, b: 0.5803922, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -2388,6 +2388,7 @@ MonoBehaviour:
   - regionName: Crystal Mountains
     rooms:
     - {fileID: 2432263, guid: 3d2035b6ee9072542b6f48d92455169b, type: 3}
+    - {fileID: 6260678509704440639, guid: a4d53339dacdf44519090d10ca0cadf8, type: 3}
 --- !u!1 &1613352169
 GameObject:
   m_ObjectHideFlags: 0

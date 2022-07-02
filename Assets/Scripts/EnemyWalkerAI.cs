@@ -89,7 +89,7 @@ public class EnemyWalkerAI : MonoBehaviour
 
         if (health <= 0f) 
         {
-            GameController.instance.DecEnemyCount();
+            //GameController.instance.DecEnemyCount();
             Destroy(gameObject);
         }
     }

@@ -45,12 +45,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Origin: -0.47
-    - _Spread: 0.87
+    - _Origin: -0.38
+    - _Spread: 0.73
     - _Star_Amount: 5
     - _Star_Power: 1000
     m_Colors:
-    - _Bottom_Color: {r: 1, g: 0.50168836, b: 0, a: 0}
+    - _Bottom_Color: {r: 1, g: 0, b: 0.28504562, a: 0}
     - _Top_Color: {r: 0, g: 0.15527105, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6504879316723074296
