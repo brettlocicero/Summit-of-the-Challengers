@@ -57,5 +57,5 @@ Material:
     - _Charge_Counter: 1
     - _Charge_Time: 1
     m_Colors:
-    - _Charge_Color: {r: 1, g: 0, b: 0.043622494, a: 0}
+    - _Charge_Color: {r: 16, g: 0, b: 0.6901961, a: 0}
   m_BuildTextureStacks: []
