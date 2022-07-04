@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sky
-  m_Shader: {fileID: -6465566751694194690, guid: 37adce29511a7b7468bdca63102441e4, type: 3}
+  m_Name: Torch
+  m_Shader: {fileID: -6465566751694194690, guid: f4f9b0653347e1c42982ae5acdcb47ca, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,11 +23,19 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Falloff:
+    - _AlphaTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+        m_Texture: {fileID: 2800000, guid: f196d0355df704a498ca8f5503010db9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -45,15 +53,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Origin: -0.38
-    - _Spread: 0.73
-    - _Star_Amount: 5
-    - _Star_Power: 1000
+    - _EnableExternalAlpha: 0
     m_Colors:
-    - _Bottom_Color: {r: 1, g: 0, b: 0.28504562, a: 0}
-    - _Top_Color: {r: 0.43137264, g: 0, b: 1, a: 0}
+    - _Color: {r: 47.937256, g: 6.27451, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &6504879316723074296
+--- !u!114 &3084461862804648500
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
