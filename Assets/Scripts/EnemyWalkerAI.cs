@@ -9,6 +9,7 @@ public class EnemyWalkerAI : MonoBehaviour
     [Header("Base Stats")]
     [SerializeField] float maxSpeed;
     [SerializeField] float health = 50f;
+    [SerializeField] int moneyOrbSpawns = 3;
 
     [Header("Attack Stats")]
     [SerializeField] int damage;
@@ -21,6 +22,7 @@ public class EnemyWalkerAI : MonoBehaviour
     [Header("VFX")]
     [SerializeField] Animator anim;
     [SerializeField] Material flashMaterial;
+    [SerializeField] GameObject moneyOrb;
     
     Rigidbody2D rb;
     bool stunned;
@@ -94,7 +96,9 @@ public class EnemyWalkerAI : MonoBehaviour
 
         if (health <= 0f) 
         {
-            //GameController.instance.DecEnemyCount();
+            for (int i = 0; i < moneyOrbSpawns; i++)
+                Instantiate(moneyOrb, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
     }

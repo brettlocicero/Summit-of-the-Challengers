@@ -608,6 +608,7 @@ MonoBehaviour:
   target: {fileID: 0}
   maxSpeed: 3
   health: 50
+  moneyOrbSpawns: 3
   damage: 1
   attackTime: 2.5
   attackDistance: 6
@@ -618,6 +619,7 @@ MonoBehaviour:
     m_Bits: 8
   anim: {fileID: 1390916341386482726}
   flashMaterial: {fileID: 2100000, guid: b9fa5f12956714307a23ddbbb2533334, type: 2}
+  moneyOrb: {fileID: 1089030504416316605, guid: f47dfc9b24d8942d2a0452f6cf796560, type: 3}
 --- !u!50 &1390916341580945596
 Rigidbody2D:
   serializedVersion: 4
