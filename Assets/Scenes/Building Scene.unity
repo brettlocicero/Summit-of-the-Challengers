@@ -418,6 +418,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 576228031293568593, guid: 30e59ce0ab3886b4ba31aa6c440c283c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3193894009005036112, guid: 30e59ce0ab3886b4ba31aa6c440c283c, type: 3}
       propertyPath: m_Name
       value: Room 3
@@ -464,6 +468,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3193894009005036113, guid: 30e59ce0ab3886b4ba31aa6c440c283c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892950039998199040, guid: 30e59ce0ab3886b4ba31aa6c440c283c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559743918338047310, guid: 30e59ce0ab3886b4ba31aa6c440c283c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5417559164623604772, guid: 30e59ce0ab3886b4ba31aa6c440c283c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274908727155230858, guid: 30e59ce0ab3886b4ba31aa6c440c283c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
