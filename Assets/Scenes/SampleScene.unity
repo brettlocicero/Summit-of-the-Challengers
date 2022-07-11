@@ -2155,7 +2155,7 @@ Transform:
   - {fileID: 1929508669}
   - {fileID: 904555033}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -3403,7 +3403,7 @@ Transform:
   - {fileID: 346081446}
   - {fileID: 73494829}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &802062747
 MonoBehaviour:
@@ -4208,10 +4208,6 @@ PrefabInstance:
     - target: {fileID: 2298080495926160289, guid: 4a27cbf3a79bf6d429e508ac8acfad01, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2298080495926160289, guid: 4a27cbf3a79bf6d429e508ac8acfad01, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -5871,7 +5867,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000810d7c3565b825f2
+  m_ApplyToSortingLayers: 00000000810d7c3565b825f2f77c15af
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -6533,7 +6529,7 @@ Transform:
   m_Children:
   - {fileID: 689452361}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1538178128
 MonoBehaviour:
@@ -8745,7 +8741,7 @@ Transform:
   - {fileID: 110099212}
   - {fileID: 807623394}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2056894141
 GameObject:

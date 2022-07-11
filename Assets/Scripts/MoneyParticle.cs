@@ -20,7 +20,7 @@ public class MoneyParticle : MonoBehaviour
 
         money = Mathf.RoundToInt(Random.Range(moneyAmt.x, moneyAmt.y));
         float t = (money - moneyAmt.x) / (moneyAmt.y - moneyAmt.x);
-        float n = Mathf.Lerp(0.5f, 1f, t);
+        float n = Mathf.Lerp(0.25f, 1.25f, t);
         transform.localScale = new Vector2(n, n);
     }
 
@@ -34,16 +34,11 @@ public class MoneyParticle : MonoBehaviour
             Vector2 dir = pos - new Vector2(transform.position.x, transform.position.y);
             rb.velocity = dir.normalized * (125f / dist);
         }
-        
-        else 
-        {
-            rb.velocity = rb.velocity * 0.99f;
-        }
     }
 
-    void OnTriggerEnter2D (Collider2D col) 
+    void OnCollisionEnter2D (Collision2D col) 
     {
-        if (col.CompareTag("Player")) 
+        if (col.gameObject.CompareTag("Player")) 
         {
             MoneyManager.instance.UpdateMoney(money);
             Destroy(gameObject);

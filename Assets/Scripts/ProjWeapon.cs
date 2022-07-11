@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ProjWeapon : MonoBehaviour
 {
+    [SerializeField] WeaponSO weapon;
+
+    [Header("")]
     [SerializeField] Rigidbody2D proj;
     [SerializeField] float fireRate = 0.25f;
     [SerializeField] float projSpeed = 1500f;

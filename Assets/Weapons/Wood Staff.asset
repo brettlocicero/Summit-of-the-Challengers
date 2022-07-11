@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac333b80b7e149fba16cf3b7dc7fb23, type: 3}
+  m_Name: Wood Staff
+  m_EditorClassIdentifier: 
+  weaponName: Wood Staff
+  proj: {fileID: -7717465040914802431, guid: a83d5f3970f5a59409c5a800dd8d669e, type: 3}
+  fireRate: 0.25
+  projSpeed: 1500
