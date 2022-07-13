@@ -85,7 +85,7 @@ public class EnemyFlyerAI : MonoBehaviour
 
     IEnumerator DamageFlash () 
     {
-        if (inFlash) yield return null;
+        if (inFlash) yield break;
 
         inFlash = true;
 

@@ -118,7 +118,7 @@ public class EnemyWalkerAI : MonoBehaviour
 
     IEnumerator DamageFlash () 
     {
-        if (inFlash) yield return null;
+        if (inFlash) yield break;
 
         inFlash = true;
 

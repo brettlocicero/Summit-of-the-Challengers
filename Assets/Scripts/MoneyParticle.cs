@@ -42,7 +42,7 @@ public class MoneyParticle : MonoBehaviour
         if (col.gameObject.CompareTag("Player")) 
         {
             MoneyManager.instance.UpdateMoney(money);
-            DamageNumberManager.instance.SpawnNumbers(money, Color.green, transform.position, symbol: moneyIcon);
+            DamageNumberManager.instance.SpawnNumbers(money, Color.yellow, transform.position, symbol: moneyIcon);
             Destroy(gameObject);
         }
     }

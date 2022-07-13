@@ -53,13 +53,13 @@ public class PlayerMovement : MonoBehaviour
         if (mouseX > Screen.width / 2) 
         {
             playerSprites.localScale = Vector3.one;
-            gun.localScale = new Vector3(1.5f, 1.5f, 1f);
+            gun.localScale = new Vector3(1f, 1f, 1f);
         }
 
         else 
         {
             playerSprites.localScale = new Vector3(-1f, 1f, 1f);
-            gun.localScale = new Vector3(1.5f, -1.5f, 1f);
+            gun.localScale = new Vector3(1f, -1f, 1f);
         }
 
         // Jumping
