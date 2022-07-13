@@ -51,7 +51,7 @@ Material:
     - _Star_Power: 1000
     m_Colors:
     - _Bottom_Color: {r: 1, g: 0, b: 0.28504562, a: 0}
-    - _Top_Color: {r: 0.43137264, g: 0, b: 1, a: 0}
+    - _Top_Color: {r: 0.05882353, g: 0.07058824, b: 0.44313726, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6504879316723074296
 MonoBehaviour:

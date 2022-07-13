@@ -6,6 +6,7 @@ public class MoneyParticle : MonoBehaviour
 {
     [SerializeField] Vector2 velocityRange;
     [SerializeField] Vector2 moneyAmt;
+    [SerializeField] Sprite moneyIcon;
 
     Rigidbody2D rb;
     int money;
@@ -41,6 +42,7 @@ public class MoneyParticle : MonoBehaviour
         if (col.gameObject.CompareTag("Player")) 
         {
             MoneyManager.instance.UpdateMoney(money);
+            DamageNumberManager.instance.SpawnNumbers(money, Color.green, transform.position, symbol: moneyIcon);
             Destroy(gameObject);
         }
     }

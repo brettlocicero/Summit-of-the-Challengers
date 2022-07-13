@@ -88,7 +88,7 @@ public class EnemyWalkerAI : MonoBehaviour
         }
     }
 
-    public void TakeDamage (float dmg) 
+    public void TakeDamage (int dmg) 
     {
         health -= dmg;
         //StartCoroutine(Stun(0.25f, 12f));

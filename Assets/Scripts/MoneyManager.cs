@@ -16,6 +16,6 @@ public class MoneyManager : MonoBehaviour
     public void UpdateMoney (int cnt = 0)
     {
         money += cnt;
-        moneyText.text = "$" + money;    
+        moneyText.text = money.ToString();    
     }
 }
