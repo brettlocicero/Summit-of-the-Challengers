@@ -96,6 +96,8 @@ public class EnemyWalkerAI : MonoBehaviour
 
         if (health <= 0f) 
         {
+            GameController.instance.DecEnemyCount();
+
             for (int i = 0; i < moneyOrbSpawns; i++)
                 Instantiate(moneyOrb, transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f), Quaternion.identity);
 
