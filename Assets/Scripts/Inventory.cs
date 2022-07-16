@@ -5,9 +5,20 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory instance;
+
     [SerializeField] int selectionInd;
-    [SerializeField] Image[] inventorySlots;
+    [SerializeField] InventorySlot[] inventorySlots;
     [SerializeField] Color deselectedColor;
+    [SerializeField] WeaponSO testWeapon;
+
+    void Awake () => instance = this;
+
+    void Start () 
+    {
+        //for (int i = 0; i < 4; i++)
+            //UpdateSlot(i, testWeapon);
+    }
 
     void Update ()
     {
@@ -17,43 +28,50 @@ public class Inventory : MonoBehaviour
     void Selection () 
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) 
-        {
-            inventorySlots[selectionInd].rectTransform.sizeDelta = new Vector2(90f, 90f);
-            inventorySlots[selectionInd].GetComponent<Outline>().effectColor = deselectedColor;
-
-            selectionInd = 0;
-            inventorySlots[selectionInd].rectTransform.sizeDelta = new Vector2(125f, 125f);
-            inventorySlots[selectionInd].GetComponent<Outline>().effectColor = Color.white;
-        }
-
+            ChangeSelection(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) 
-        {
-            inventorySlots[selectionInd].rectTransform.sizeDelta = new Vector2(90f, 90f);
-            inventorySlots[selectionInd].GetComponent<Outline>().effectColor = deselectedColor;
-
-            selectionInd = 1;
-            inventorySlots[selectionInd].rectTransform.sizeDelta = new Vector2(125f, 125f);
-            inventorySlots[selectionInd].GetComponent<Outline>().effectColor = Color.white;
-        }
-
+            ChangeSelection(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) 
-        {
-            inventorySlots[selectionInd].rectTransform.sizeDelta = new Vector2(90f, 90f);
-            inventorySlots[selectionInd].GetComponent<Outline>().effectColor = deselectedColor;
-
-            selectionInd = 2;
-            inventorySlots[selectionInd].rectTransform.sizeDelta = new Vector2(125f, 125f);
-            inventorySlots[selectionInd].GetComponent<Outline>().effectColor = Color.white;
-        }
-
+            ChangeSelection(2);
         if (Input.GetKeyDown(KeyCode.Alpha4)) 
-        {
-            inventorySlots[selectionInd].rectTransform.sizeDelta = new Vector2(90f, 90f);
-            inventorySlots[selectionInd].GetComponent<Outline>().effectColor = deselectedColor;
+            ChangeSelection(3);
+    }
 
-            selectionInd = 3;
-            inventorySlots[selectionInd].rectTransform.sizeDelta = new Vector2(125f, 125f);
-            inventorySlots[selectionInd].GetComponent<Outline>().effectColor = Color.white;
+    void ChangeSelection (int i) 
+    {
+        if (inventorySlots[i].weapon == null) return;
+
+        inventorySlots[selectionInd].slot.rectTransform.sizeDelta = new Vector2(90f, 90f);
+        inventorySlots[selectionInd].slot.GetComponent<Outline>().effectColor = deselectedColor;
+        inventorySlots[selectionInd].slot.transform.GetChild(0).GetComponent<Image>().rectTransform.sizeDelta = new Vector2(90f, 90f);
+
+        selectionInd = i;
+        inventorySlots[selectionInd].slot.rectTransform.sizeDelta = new Vector2(125f, 125f);
+        inventorySlots[selectionInd].slot.GetComponent<Outline>().effectColor = Color.white;
+        inventorySlots[selectionInd].slot.transform.GetChild(0).GetComponent<Image>().rectTransform.sizeDelta = new Vector2(125f, 125f);
+    }
+
+    public void ChooseSlot (WeaponSO weapon) 
+    {
+        for (int i = 0; i < 4; i++) 
+        {
+            if (inventorySlots[i].weapon != null) continue;
+
+            UpdateSlot(i, testWeapon);
+            break;
         }
     }
+
+    void UpdateSlot (int i, WeaponSO weapon) 
+    {
+        inventorySlots[i].weapon = weapon;
+        inventorySlots[i].slot.transform.GetChild(0).GetComponent<Image>().sprite = weapon.icon;
+    }
+}
+
+[System.Serializable]
+struct InventorySlot 
+{
+    public Image slot;
+    public WeaponSO weapon;
 }

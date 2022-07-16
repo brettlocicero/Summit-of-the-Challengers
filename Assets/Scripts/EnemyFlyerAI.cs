@@ -6,12 +6,17 @@ public class EnemyFlyerAI : MonoBehaviour
 {
     [SerializeField] Transform target;
 
+    [Header("Stats")]
     [SerializeField] float updateDirInterval = 5f;
     [SerializeField] float attackSpeed = 4f;
     [SerializeField] Transform attackObj;
     [SerializeField] float health = 25f;
+
+    [Header("VFX")]
     [SerializeField] Transform spriteVisuals;
     [SerializeField] Material flashMaterial;
+    [SerializeField] GameObject moneyOrb;
+    [SerializeField] int moneyOrbSpawns;
 
     Rigidbody2D rb;
     bool stunned;
@@ -65,7 +70,10 @@ public class EnemyFlyerAI : MonoBehaviour
 
         if (health <= 0f) 
         {
-            GameController.instance.DecEnemyCount();
+            for (int i = 0; i < moneyOrbSpawns; i++)
+                Instantiate(moneyOrb, transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f), Quaternion.identity);
+
+            //GameController.instance.DecEnemyCount();
             Destroy(gameObject);
         }
     }

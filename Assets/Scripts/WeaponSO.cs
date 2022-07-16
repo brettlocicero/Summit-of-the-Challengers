@@ -9,4 +9,5 @@ public class WeaponSO : ScriptableObject
     public Rigidbody2D proj;
     public float fireRate = 0.25f;
     public float projSpeed = 1500f;
+    public Sprite icon;
 }

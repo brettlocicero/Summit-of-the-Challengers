@@ -54,6 +54,8 @@ MonoBehaviour:
   health: 25
   spriteVisuals: {fileID: 2308874507228643739}
   flashMaterial: {fileID: 2100000, guid: b9fa5f12956714307a23ddbbb2533334, type: 2}
+  moneyOrb: {fileID: 1089030504416316605, guid: f47dfc9b24d8942d2a0452f6cf796560, type: 3}
+  moneyOrbSpawns: 2
 --- !u!50 &2308874506831566282
 Rigidbody2D:
   serializedVersion: 4
