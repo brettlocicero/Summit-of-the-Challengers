@@ -24,15 +24,23 @@ public class GameController : MonoBehaviour
         SpawnNextWave();
     }
 
-    void SpawnNextWave () 
+    public void SpawnNextWave () 
     {
         wave++;
         waveText.text = "Wave " + wave;
 
-        int formula = wave * 2;
-        waveEnemyCount = formula;
+        if (wave % 5 != 0) 
+        {
+            int formula = wave * 2;
+            waveEnemyCount = formula;
 
-        StartCoroutine(SpawnEnemies(waveEnemyCount));
+            StartCoroutine(SpawnEnemies(waveEnemyCount));
+        }
+
+        else 
+        {
+            SpawnShopAndHealing();
+        }
     }
 
     IEnumerator SpawnEnemies (int enemyCount, bool spawnLeftside = true)
@@ -50,7 +58,6 @@ public class GameController : MonoBehaviour
         // base call, recursion call
         if (enemyCount > 1) 
         {
-            print("recursing");
             StartCoroutine(SpawnEnemies(enemyCount - 1, !spawnLeftside));
         }
     }
@@ -69,5 +76,10 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         SpawnNextWave();
+    }
+
+    void SpawnShopAndHealing () 
+    {
+        print("spawning shop and healing orbs");
     }
 }

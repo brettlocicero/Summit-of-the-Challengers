@@ -73,7 +73,7 @@ public class EnemyFlyerAI : MonoBehaviour
             for (int i = 0; i < moneyOrbSpawns; i++)
                 Instantiate(moneyOrb, transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f), Quaternion.identity);
 
-            //GameController.instance.DecEnemyCount();
+            GameController.instance.DecEnemyCount();
             Destroy(gameObject);
         }
     }
