@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     CapsuleCollider2D mainCollider;
     Transform t;
     public bool stunned;
+    bool dashing;
 
     [SerializeField] Animator spriteAnim;
     [SerializeField] Transform playerSprites;
@@ -80,6 +81,9 @@ public class PlayerMovement : MonoBehaviour
 
             doubleJumped = !doubleJumped;
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !dashing)
+            StartCoroutine(Dash());
     }
 
     void Movement () 
@@ -141,17 +145,27 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && adminMode)
-            rbVelocity = new Vector2((moveDirection) * maxSpeed * 3f, r2d.velocity.y);
-        else
-            rbVelocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
+        rbVelocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
 
         // Apply movement velocity
-        if (!stunned)
+        if (!stunned && !dashing)
             r2d.velocity = rbVelocity;
 
         // Simple debug
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
         Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
+    }
+
+    IEnumerator Dash () 
+    {
+        dashing = true;
+        r2d.gravityScale = 0f;
+        r2d.velocity = new Vector2(r2d.velocity.x, 0f);
+        r2d.AddForce(new Vector2((moveDirection) * maxSpeed * 10f, 0f), ForceMode2D.Impulse);
+        
+        yield return new WaitForSeconds(0.1f);
+
+        r2d.gravityScale = gravityScale;
+        dashing = false;
     }
 }

@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
 
         if (wave % 5 != 0) 
         {
-            int formula = wave * 2;
+            int formula = (wave * 2) + 2;
             waveEnemyCount = formula;
 
             StartCoroutine(SpawnEnemies(waveEnemyCount));
