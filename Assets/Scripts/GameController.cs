@@ -6,7 +6,9 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+    [SerializeField] bool active;
 
+    [Header("")]
     [SerializeField] int wave;
     [SerializeField] Transform leftSpawn;
     [SerializeField] Transform rightSpawn;
@@ -21,7 +23,7 @@ public class GameController : MonoBehaviour
 
     void Start () 
     {
-        SpawnNextWave();
+        if (active) SpawnNextWave();
     }
 
     public void SpawnNextWave () 
