@@ -12,8 +12,8 @@ public class ItemDrop : MonoBehaviour
         {
             if (!AuxFunctions.WithinCheckDistance(8f, transform.position, PlayerInstance.instance.transform.position)) return;
 
-            Inventory.instance.ChooseSlot(weapon);
-            Destroy(gameObject);
+            int success = Inventory.instance.ChooseSlot(weapon);
+            if (success == 0) Destroy(gameObject);
         }
     }
 }

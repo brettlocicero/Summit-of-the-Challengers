@@ -16,3 +16,4 @@ MonoBehaviour:
   proj: {fileID: -7717465040914802431, guid: a83d5f3970f5a59409c5a800dd8d669e, type: 3}
   fireRate: 0.25
   projSpeed: 1500
+  icon: {fileID: 21300000, guid: 6952a43075d853b4c849ee21eb8ec07b, type: 3}

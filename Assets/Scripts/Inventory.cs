@@ -10,14 +10,23 @@ public class Inventory : MonoBehaviour
     [SerializeField] int selectionInd;
     [SerializeField] InventorySlot[] inventorySlots;
     [SerializeField] Color deselectedColor;
-    [SerializeField] WeaponSO testWeapon;
+    [SerializeField] GameObject[] playerWeapons;
 
     void Awake () => instance = this;
 
     void Start () 
     {
-        //for (int i = 0; i < 4; i++)
-            //UpdateSlot(i, testWeapon);
+        InitSlots();
+    }
+
+    void InitSlots () 
+    {
+        for (int i = 0; i < 4; i++) 
+        {
+            if (inventorySlots[i].weapon == null) continue;
+
+            UpdateSlot(i, inventorySlots[i].weapon);
+        }
     }
 
     void Update ()
@@ -49,23 +58,39 @@ public class Inventory : MonoBehaviour
         inventorySlots[selectionInd].slot.rectTransform.sizeDelta = new Vector2(125f, 125f);
         inventorySlots[selectionInd].slot.GetComponent<Outline>().effectColor = Color.white;
         inventorySlots[selectionInd].slot.transform.GetChild(0).GetComponent<Image>().rectTransform.sizeDelta = new Vector2(125f, 125f);
+
+        SwitchToWeapon(inventorySlots[selectionInd].weapon.weaponName);
     }
 
-    public void ChooseSlot (WeaponSO weapon) 
+    void SwitchToWeapon (string weaponName) 
+    {
+        foreach (GameObject w in playerWeapons) 
+        {
+            if (w.name == weaponName) 
+                w.SetActive(true);
+            else
+                w.SetActive(false);
+        }
+    }
+
+    public int ChooseSlot (WeaponSO weapon) 
     {
         for (int i = 0; i < 4; i++) 
         {
             if (inventorySlots[i].weapon != null) continue;
 
-            UpdateSlot(i, testWeapon);
-            break;
+            UpdateSlot(i, weapon);
+            return 0;
         }
+
+        return 1;
     }
 
     void UpdateSlot (int i, WeaponSO weapon) 
     {
         inventorySlots[i].weapon = weapon;
         inventorySlots[i].slot.transform.GetChild(0).GetComponent<Image>().sprite = weapon.icon;
+        inventorySlots[i].slot.transform.GetChild(0).GetComponent<Image>().color = Color.white;
     }
 }
 

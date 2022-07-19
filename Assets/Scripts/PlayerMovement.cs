@@ -27,8 +27,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform playerSprites;
     [SerializeField] Transform gun;
     [SerializeField] ParticleSystem dust;
+    [SerializeField] ParticleSystem dashParticles;
     [SerializeField] PhysicsMaterial2D walkingMat;
     [SerializeField] PhysicsMaterial2D fallingMat;
+    [SerializeField] PhysicsMaterial2D dashingMat;
     [SerializeField] LayerMask groundLayer;
 
     [HideInInspector] public Vector2 rbVelocity;
@@ -64,13 +66,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Jumping
-        if (isGrounded) 
+        if (isGrounded && !dashing) 
         {
             doubleJumped = false;
             GetComponent<CapsuleCollider2D>().sharedMaterial = walkingMat;
         }
 
-        else
+        else if (!dashing)
             GetComponent<CapsuleCollider2D>().sharedMaterial = fallingMat;
 
         dust.enableEmission = isGrounded && moveDirection != 0;
@@ -159,12 +161,15 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dash () 
     {
         dashing = true;
+        GetComponent<CapsuleCollider2D>().sharedMaterial = dashingMat;
         r2d.gravityScale = 0f;
         r2d.velocity = new Vector2(r2d.velocity.x, 0f);
         r2d.AddForce(new Vector2((moveDirection) * maxSpeed * 10f, 0f), ForceMode2D.Impulse);
+        dashParticles.Play();
         
         yield return new WaitForSeconds(0.1f);
 
+        dashParticles.Stop();
         r2d.gravityScale = gravityScale;
         dashing = false;
     }
