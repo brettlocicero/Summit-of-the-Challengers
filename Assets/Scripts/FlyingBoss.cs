@@ -7,6 +7,8 @@ public class FlyingBoss : MonoBehaviour
     [SerializeField] State bossState;
     [SerializeField] Transform target;
     [SerializeField] float stateUpdateInterval = 5f;
+    [SerializeField] Transform[] projSpawnPoints;
+    [SerializeField] GameObject laserProj;
 
     Rigidbody2D rb;
     Vector2 targetPos;
@@ -26,8 +28,16 @@ public class FlyingBoss : MonoBehaviour
         SwitchState();
     }
 
-    void MovePosition (Vector3 dir, float speed = 2f) 
+    void LookAt (Transform t, Transform target) 
     {
+        Vector3 dir = target.position - t.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        t.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    void MovePosition (Vector3 target, float speed = 2f) 
+    {
+        Vector3 dir = target - transform.position;
         rb.MovePosition(transform.position + Time.deltaTime * dir * speed);
     }
 
@@ -53,11 +63,24 @@ public class FlyingBoss : MonoBehaviour
         print("Spraying");
 
         float t = stateUpdateInterval;
+        float tickTime = stateUpdateInterval / 5f;
+        float nextTick = stateUpdateInterval;
         while (t >= 0f) 
         {
             t -= Time.deltaTime;
-            Vector3 dir = target.position - transform.position;
-            MovePosition(-dir, 0.2f);
+            MovePosition(-target.position, 0.2f);
+
+            if (t <= nextTick) 
+            {
+                foreach (Transform point in projSpawnPoints) 
+                {
+                    GameObject proj = Instantiate(laserProj, point.position, Quaternion.identity);
+                    LookAt(proj.transform, target);
+                }
+
+                nextTick -= tickTime;
+            }
+
             yield return null;
         }
         
@@ -73,8 +96,7 @@ public class FlyingBoss : MonoBehaviour
         while (t >= 0f) 
         {
             t -= Time.deltaTime;
-            Vector3 dir = target.position - transform.position;
-            MovePosition(dir, 3f);
+            MovePosition(target.position, 3f);
             yield return null;
         }
         
