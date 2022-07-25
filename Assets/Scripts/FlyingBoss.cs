@@ -9,6 +9,7 @@ public class FlyingBoss : MonoBehaviour
     [SerializeField] float stateUpdateInterval = 5f;
     [SerializeField] Transform[] projSpawnPoints;
     [SerializeField] GameObject laserProj;
+    [SerializeField] GameObject verticalSpawn;
 
     Rigidbody2D rb;
     Vector2 targetPos;
@@ -76,6 +77,7 @@ public class FlyingBoss : MonoBehaviour
                 {
                     GameObject proj = Instantiate(laserProj, point.position, Quaternion.identity);
                     LookAt(proj.transform, target);
+                    Destroy(proj, 5f);
                 }
 
                 nextTick -= tickTime;
@@ -109,10 +111,22 @@ public class FlyingBoss : MonoBehaviour
         print("VerticalShooting");
 
         float t = stateUpdateInterval;
+        float tickTime = stateUpdateInterval / 5f;
+        float nextTick = stateUpdateInterval;
         while (t >= 0f) 
         {
             t -= Time.deltaTime;
-            MovePosition(Vector3.zero, 3f);
+            MovePosition(Vector3.zero, 0.2f);
+
+            if (t <= nextTick) 
+            {
+                //Vector3 pos = new Vector3(target.position.x + 15*i, target.position.y, 0f);
+                GameObject proj = Instantiate(verticalSpawn, target.position, Quaternion.identity);
+                Destroy(proj, 5f);
+                
+                nextTick -= tickTime;
+            }
+
             yield return null;
         }
         

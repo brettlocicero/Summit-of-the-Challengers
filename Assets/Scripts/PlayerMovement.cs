@@ -75,7 +75,9 @@ public class PlayerMovement : MonoBehaviour
         else if (!dashing)
             GetComponent<CapsuleCollider2D>().sharedMaterial = fallingMat;
 
-        dust.enableEmission = isGrounded && moveDirection != 0;
+        if (isGrounded && moveDirection != 0) dust.Play();
+        else dust.Stop();
+        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded || Input.GetKeyDown(KeyCode.Space) && !doubleJumped)
         {
             r2d.velocity = new Vector2(r2d.velocity.x, 0f);
