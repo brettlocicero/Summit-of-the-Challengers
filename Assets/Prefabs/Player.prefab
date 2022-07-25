@@ -11675,7 +11675,7 @@ MonoBehaviour:
   projSpeed: 5000
   anim: {fileID: 8516019767570319251}
   shotAnim: {fileID: 7400000, guid: 1f4c18559a1bc9b4892d5c63ed1a9591, type: 2}
-  shotSound: {fileID: 8300000, guid: 836e6e9b1c6327c44b3ab62506f4d753, type: 3}
+  shotSound: {fileID: 8300000, guid: d3bdc4bc73a5e334594556369326f9b3, type: 3}
 --- !u!82 &8324965242335509436
 AudioSource:
   m_ObjectHideFlags: 0
