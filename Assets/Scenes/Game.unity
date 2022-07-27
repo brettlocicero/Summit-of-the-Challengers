@@ -12565,7 +12565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossState: 0
   target: {fileID: 0}
-  stateUpdateInterval: 3
+  stateUpdateInterval: 4
   projSpawnPoints:
   - {fileID: 1199440559}
   - {fileID: 557156890}
