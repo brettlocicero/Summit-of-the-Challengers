@@ -8,8 +8,10 @@ public class FlyingBoss : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float stateUpdateInterval = 5f;
     [SerializeField] Transform[] projSpawnPoints;
+    [SerializeField] Transform[] crystalBulletSpawns;
     [SerializeField] GameObject laserProj;
     [SerializeField] GameObject verticalSpawn;
+    [SerializeField] GameObject crystalBulletProj;
 
     Rigidbody2D rb;
     Vector2 targetPos;
@@ -95,10 +97,25 @@ public class FlyingBoss : MonoBehaviour
         print("Charging");
 
         float t = stateUpdateInterval;
+        float tickTime = stateUpdateInterval / 10f;
+        float nextTick = stateUpdateInterval;
         while (t >= 0f) 
         {
             t -= Time.deltaTime;
-            MovePosition(target.position, 3f);
+            MovePosition(target.position, 1f);
+
+            if (t <= nextTick) 
+            {
+                foreach (Transform point in crystalBulletSpawns) 
+                {
+                    GameObject proj = Instantiate(crystalBulletProj, point.position, Quaternion.identity);
+                    proj.GetComponent<Rigidbody2D>().AddForce((target.position - point.position) * 175f);
+                    Destroy(proj, 5f);
+                }
+                
+                nextTick -= tickTime;
+            }
+
             yield return null;
         }
         
