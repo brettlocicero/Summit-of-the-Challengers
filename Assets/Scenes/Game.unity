@@ -12565,7 +12565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossState: 0
   target: {fileID: 0}
-  stateUpdateInterval: 4
+  stateUpdateInterval: 5
   projSpawnPoints:
   - {fileID: 1199440559}
   - {fileID: 557156890}
@@ -13416,7 +13416,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7782964, y: 1}
+    m_SensorSize: {x: 1.7773585, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

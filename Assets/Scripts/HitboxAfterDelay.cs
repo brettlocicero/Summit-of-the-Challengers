@@ -15,7 +15,7 @@ public class HitboxAfterDelay : MonoBehaviour
 
     void Hitbox ()
     {
-        Collider2D hit = Physics2D.OverlapBox(trueHitbox.position, trueHitbox.localScale, 0f, playerLayer);
+        Collider2D hit = Physics2D.OverlapBox(trueHitbox.position, trueHitbox.localScale, trueHitbox.rotation.z, playerLayer);
         
         if (hit) 
         {
